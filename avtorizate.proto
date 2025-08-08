@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package auth_service;
+
+option go_package = "pkg/;avtorizate";
+
+service Avtorizate {
+  // Метод аутентификации пользователя
+  rpc AvtorizateMethod (AvtorizateRequest) returns (AvtorizateResponse);
+}
+
+// Сообщение запроса для аутентификации
+message AvtorizateRequest {
+  string token = 1;
+}
+
+// Ответ на запрос аутентификации
+message AvtorizateResponse {
+  bool success = 1;
+  string message = 2;
+}
